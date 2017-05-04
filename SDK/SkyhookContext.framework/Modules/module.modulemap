@@ -1,0 +1,6 @@
+framework module SkyhookContext {
+  umbrella header "SkyhookContext.h"
+
+  export *
+  module * { export * }
+}
