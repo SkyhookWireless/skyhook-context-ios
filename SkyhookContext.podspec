@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = 'SkyhookContext'
-  s.version               = '2.0.9'
+  s.version               = '2.0.10'
   s.summary               = 'Skyhook Context SDK'
   s.homepage              = 'http://www.skyhook.com'
   s.author                = { "Skyhook Wireless, Inc." => "iosdev@skyhook.com" }
