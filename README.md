@@ -4,7 +4,7 @@ The Skyhook Context SDK for iOS provides a simple way to integrate Skyhook Conte
 
 ## Installation
 
-Xcode 8.0+ is required for all projects. Projects must target >= iOS8
+Xcode 9.0+ is required for all projects. Projects must target >= iOS9
 
 ### CocoaPods
 
