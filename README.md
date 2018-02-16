@@ -134,7 +134,7 @@ You can request a refresh of the Skyhook persona of the current user by calling 
         // use persona
     }];
 
-###Latest Persona###
+###Latest Persona
 
 At any time you can access the Skyhook persona of the current user as represented by the `persona` property. If no persona is available, this property will be *nil*.
 
@@ -173,7 +173,8 @@ The result of the above code would print something like this:
 
 Note that since the values are ordered by probability, you can simply grab the first element (index 0) from the list to get the most probable value for the current user.
 
-###Behaviors###
+
+###Behaviors
 
 Similarly to the five demographic objects, *SHXPersona* also includes a *behaviors* property.
 
@@ -191,12 +192,14 @@ The result of the above code would print something like this:
     ID:12341318394918 name:auto intenders
     ID:1234131839491234 name:auto enthusiasts
 
-###Notifications###
+
+###Notifications
 
 Anytime the persona is updated, *SHXAccelerator* will notify its delegate.
 
     - (void)accelerator:(SHXAccelerator *)accelerator
        didUpdatePersona:(SHXPersona *)persona;
+
 
 ###When does the Skyhook persona update?
 
@@ -309,7 +312,8 @@ If successful, the block will return an *SHXIPLocation* object. The object is a 
 
 Additional *SHXIPLocation* properties are as follows:
 
-###SHXIPLocation###
+
+###SHXIPLocation
 
 Property Name      | Property Type                                            | Definition
 -------------------|----------------------------------------------------------|-----------
@@ -317,25 +321,28 @@ coordinate         | CLLocationCoordinate2D                                   | 
 accuracyIndicator  | [SHXAccuracyIndicator](#shx_location_accuracy_indicator) | horizontal accuracy indicator
 locationType       | [SHXIPLocationType](#shx_ip_location_type)               | type of IP
 
-<br />
-####<a name="shx_ip_location_type"></a>SHXIPLocationType####
+
+####SHXIPLocationType
+
 Value                    | Definiton
 -------------------------|----------
 SHXIPLocationTypeFixed   | fixed IP address
 SHXIPLocationTypeMobile  | mobile IP address
 SHXIPLocationTypeUnknown | unable to resolve type of IP
 
-<br />
+
 Venue Information
 -----------------
 
 The Context Accelerator SDK provides a collection of methods for obtaining venue information related to your campaigns and location.
 
-###Nearby Monitored Venues###
+
+###Nearby Monitored Venues
 
 The `fetchNearbyMonitoredVenuesWithLimit:completion:` method allows the client to obtain the unique identifiers of nearby venues that are part of actively monitored campaigns. This method can be used in conjunction with the `fetchInfoForVenues:completion:` method to obtain more detailed venue information.
 
-###Venue Information by unique identifer###
+
+###Venue Information by unique identifer
 
 The `fetchInfoForVenues:completion:` method allows the client to obtain more detailed venue information using the unqiue venue identifiers from the `SHXCampaignVenue` and `SHXNearbyCampaignVenue` objects.
 
@@ -369,7 +376,8 @@ The `fetchInfoForVenues:completion:` method allows the client to obtain more det
         }];
     }];
 
-###Venue Information at the current location###
+
+###Venue Information at the current location
 
 The `fetchVenueInfoAtLocationWithCompletion:` method allows the client to request the venue information at the current user location.
 
@@ -385,7 +393,8 @@ The `fetchVenueInfoAtLocationWithCompletion:` method allows the client to reques
         // use venue information
     }];
 
-###Campaign list###
+
+###Campaign list
 
 The `fetchCampaignsWithCompletion:` method allows the client to request the a list of campaigns available on server.
 
@@ -400,6 +409,7 @@ The `fetchCampaignsWithCompletion:` method allows the client to request the a li
 
         // use campaigns information
     }];
+
 
 Privacy Considerations
 ----------------------
