@@ -36,7 +36,7 @@ Prerequisites
 Installation
 ------------
 
-###Using Cocoapods
+### Using Cocoapods
 
 1. Add the following dependency in your Podfile
 
@@ -50,7 +50,7 @@ Installation
   $ pod update
 ````
 
-###Using Framework
+### Using Framework
 
 1. Clone [Skyhook Context](https://github.com/SkyhookWireless/skyhook-context-ios) cocoapod repo. 
 2. Drag and drop the framework (SkyhookContext.framework) into your Xcode project. Make sure you check the "Add to targets" checkbox.
@@ -134,7 +134,7 @@ You can request a refresh of the Skyhook persona of the current user by calling 
         // use persona
     }];
 
-###Latest Persona
+### Latest Persona
 
 At any time you can access the Skyhook persona of the current user as represented by the `persona` property. If no persona is available, this property will be *nil*.
 
@@ -174,7 +174,7 @@ The result of the above code would print something like this:
 Note that since the values are ordered by probability, you can simply grab the first element (index 0) from the list to get the most probable value for the current user.
 
 
-###Behaviors
+### Behaviors
 
 Similarly to the five demographic objects, *SHXPersona* also includes a *behaviors* property.
 
@@ -193,7 +193,7 @@ The result of the above code would print something like this:
     ID:1234131839491234 name:auto enthusiasts
 
 
-###Notifications
+### Notifications
 
 Anytime the persona is updated, *SHXAccelerator* will notify its delegate.
 
@@ -201,7 +201,7 @@ Anytime the persona is updated, *SHXAccelerator* will notify its delegate.
        didUpdatePersona:(SHXPersona *)persona;
 
 
-###When does the Skyhook persona update?
+### When does the Skyhook persona update?
 
 The persona is generally updated whenever the Context Accelerator SDK is notified of a location change. If you're using the [campaign monitoring](#campaign_monitoring) feature of Accelerator, coarse location updates will happen automatically. You can enhance the accuracy by [supplying a location sourced by your app](#location_hinting) anytime.
 
@@ -313,7 +313,7 @@ If successful, the block will return an *SHXIPLocation* object. The object is a 
 Additional *SHXIPLocation* properties are as follows:
 
 
-###SHXIPLocation
+### SHXIPLocation
 
 Property Name      | Property Type                                            | Definition
 -------------------|----------------------------------------------------------|-----------
@@ -322,7 +322,7 @@ accuracyIndicator  | [SHXAccuracyIndicator](#shx_location_accuracy_indicator) | 
 locationType       | [SHXIPLocationType](#shx_ip_location_type)               | type of IP
 
 
-####SHXIPLocationType
+#### SHXIPLocationType
 
 Value                    | Definiton
 -------------------------|----------
@@ -337,12 +337,12 @@ Venue Information
 The Context Accelerator SDK provides a collection of methods for obtaining venue information related to your campaigns and location.
 
 
-###Nearby Monitored Venues
+### Nearby Monitored Venues
 
 The `fetchNearbyMonitoredVenuesWithLimit:completion:` method allows the client to obtain the unique identifiers of nearby venues that are part of actively monitored campaigns. This method can be used in conjunction with the `fetchInfoForVenues:completion:` method to obtain more detailed venue information.
 
 
-###Venue Information by unique identifer
+### Venue Information by unique identifer
 
 The `fetchInfoForVenues:completion:` method allows the client to obtain more detailed venue information using the unqiue venue identifiers from the `SHXCampaignVenue` and `SHXNearbyCampaignVenue` objects.
 
@@ -377,7 +377,7 @@ The `fetchInfoForVenues:completion:` method allows the client to obtain more det
     }];
 
 
-###Venue Information at the current location
+### Venue Information at the current location
 
 The `fetchVenueInfoAtLocationWithCompletion:` method allows the client to request the venue information at the current user location.
 
@@ -394,7 +394,7 @@ The `fetchVenueInfoAtLocationWithCompletion:` method allows the client to reques
     }];
 
 
-###Campaign list
+### Campaign list
 
 The `fetchCampaignsWithCompletion:` method allows the client to request the a list of campaigns available on server.
 
