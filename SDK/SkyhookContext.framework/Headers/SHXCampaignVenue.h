@@ -36,31 +36,37 @@
  * Note that the `customData` property is optional. It will be nil if no data
  * is set on My.Skyhook for this campaign.
  */
+
+typedef NS_ENUM(NSInteger, SHXCampaignVenueEventType) {
+    SHXCampaignVenueEventTypeNear,
+    SHXCampaignVenueEventTypeInside
+};
+
 @interface SHXCampaignVenue : NSObject <NSCoding>
 
-@property (readonly, nonatomic) NSNumber *venueIdent;
-@property (readonly, nonatomic) NSString *campaignName;
-@property (readonly, nonatomic) NSDate *timestamp;
-@property (readonly, nonatomic) NSString *customData;
+@property (readonly, nonatomic) NSNumber * _Nonnull venueIdent;
+@property (readonly, nonatomic) NSString * _Nonnull campaignName;
+@property (readonly, nonatomic) NSDate * _Nonnull timestamp;
+@property (readonly, nonatomic) NSString * _Nullable customData;
 @property (readonly, nonatomic) SHXCampaignVenueEventType eventType;
 
 
-- (id)initWithVenue:(NSNumber *)venueIdent
-           campaign:(NSString *)campaignName
-          timestamp:(NSDate *)timestamp
-         customData:(NSString *)customData
+- (id _Nonnull )initWithVenue:(NSNumber *_Nonnull)venueIdent
+           campaign:(NSString *_Nonnull)campaignName
+          timestamp:(NSDate *_Nonnull)timestamp
+         customData:(NSString *_Nullable)customData
           eventType:(SHXCampaignVenueEventType)eventType;
 
-- (id)initWithCoder:(NSCoder *)coder;
-- (void)encodeWithCoder:(NSCoder *)coder;
+- (id _Nonnull )initWithCoder:(NSCoder *_Nonnull)coder;
+- (void)encodeWithCoder:(NSCoder *_Nonnull)coder;
 
 /**
  * These compare venueIdent and campaignName only
  */
-- (BOOL)isEqualToCampaignVenue:(SHXCampaignVenue *)other;
-- (BOOL)isEqual:(id)other;
+- (BOOL)isEqualToCampaignVenue:(SHXCampaignVenue *_Nullable)other;
+- (BOOL)isEqual:(id _Nullable )other;
 - (NSUInteger)hash;
 
-- (NSString *)description;
+- (NSString *_Nonnull)description;
 
 @end

@@ -153,17 +153,17 @@
 
 #import "SHXAcceleratorDelegate.h"
 #import "SHXCampaignDelegate.h"
+#import "SHXVenueInfo.h"
+#import "SHXNearbyCampaignVenue.h"
+#import "SHXCampaignVenue.h"
+#import "SHXCampaignVisit.h"
+
 #import <CoreLocation/CLLocation.h>
 #import <Foundation/Foundation.h>
 
 @class SHXPersona;
 @class SHXIPLocation;
 @class SHXCampaign;
-
-typedef NS_ENUM(NSInteger, SHXCampaignVenueEventType) {
-    SHXCampaignVenueEventTypeNear,
-    SHXCampaignVenueEventTypeInside
-};
 
 /**
  * Skyhook Accelerator
@@ -237,7 +237,7 @@ typedef NS_ENUM(NSInteger, SHXCampaignVenueEventType) {
 /*
  * It is required to use initWithKey:
  */
--(nullable id)init __attribute__((unavailable("use initWithKey:")));
+-(instancetype _Nonnull )init __attribute__((unavailable("use initWithKey:")));
 
 /**
  * Initialize a new object.
@@ -424,7 +424,7 @@ typedef NS_ENUM(NSInteger, SHXCampaignVenueEventType) {
  *                   be nil and error will contain the error object.
  */
 - (void)fetchNearbyMonitoredVenuesWithLimit:(NSUInteger)limit
-                                 completion:(void (^_Nonnull)(NSArray * _Nullable venues, NSError * _Nullable error))completion;
+                                 completion:(void (^_Nonnull)(NSArray<SHXNearbyCampaignVenue*> * _Nullable venues, NSError * _Nullable error))completion;
 
 /**
  * Fetch information for a list of venues.
@@ -438,8 +438,8 @@ typedef NS_ENUM(NSInteger, SHXCampaignVenueEventType) {
  *                   error, venueInfo will be nil and error will contain the
  *                   error object.
  */
-- (void)fetchInfoForVenues:(NSArray *_Nonnull)venues
-                completion:(void (^_Nonnull)(NSArray * _Nullable venueInfo, NSError * _Nullable error))completion;
+- (void)fetchInfoForVenues:(NSArray<NSNumber*> *_Nonnull)venues
+                completion:(void (^_Nonnull)(NSArray<SHXVenueInfo*> * _Nullable venueInfo, NSError * _Nullable error))completion;
 
 /**
  * Fetch information for the venues at the current location.
@@ -462,7 +462,7 @@ typedef NS_ENUM(NSInteger, SHXCampaignVenueEventType) {
  *                   venueInfo will be nil and error will contain the error
  *                   object.
  */
-- (void)fetchVenueInfoAtLocationWithCompletion:(void (^_Nullable)(NSArray * _Nonnull venueInfo, NSError * _Nullable error))completion;
+- (void)fetchVenueInfoAtLocationWithCompletion:(void (^_Nullable)(NSArray<SHXVenueInfo*> * _Nullable venueInfo, NSError * _Nullable error))completion;
 
 /**
  * Fetch the list of recent campaign visits.
@@ -476,7 +476,7 @@ typedef NS_ENUM(NSInteger, SHXCampaignVenueEventType) {
  *                   error object.
  */
 - (void)fetchRecentCampaignVisitsWithLimit:(NSUInteger)limit
-                                completion:(void (^_Nonnull)(NSArray * _Nullable visits, NSError * _Nullable error))completion;
+                                completion:(void (^_Nonnull)(NSArray<SHXCampaignVisit*> * _Nullable visits, NSError * _Nullable error))completion;
 
 /**
  *  Fetch the list of campaign available on server.
@@ -486,5 +486,5 @@ typedef NS_ENUM(NSInteger, SHXCampaignVenueEventType) {
  *                   On error, campaigns will be nil and error will contain the
  *                   error object.
  */
-- (void)fetchCampaignsWithCompletion:(void (^_Nullable)(NSArray<SHXCampaign *> * _Nonnull campaigns, NSError * _Nullable error))completion;
+- (void)fetchCampaignsWithCompletion:(void (^_Nullable)(NSArray<SHXCampaign *> * _Nullable campaigns, NSError * _Nullable error))completion;
 @end

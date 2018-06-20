@@ -32,7 +32,7 @@
 
 FOUNDATION_EXPORT NSString * const SHXErrorDomain;
 
-typedef NS_ENUM(NSInteger, SHXError)
+typedef NS_ERROR_ENUM(SHXErrorDomain, SHXError)
 {
     /**
      * An unspecified error occurred; no more specific information is

@@ -34,10 +34,10 @@
 
 @protocol SHXCampaignDelegate <NSObject>
 
-- (void)didEnterVenue:(SHXCampaignVenue *)venue;
-- (void)didExitVenue:(SHXCampaignVenue *)venue;
-- (void)didFailWithError:(NSError *)error;
-- (void)didStartMonitoringForCampaign:(NSString *)campaignName;
-- (void)didStopMonitoringForCampaign:(NSString *)campaignName;
+- (void)didEnterVenue:(SHXCampaignVenue * _Nonnull)venue;
+- (void)didExitVenue:(SHXCampaignVenue * _Nonnull)venue;
+- (void)didFailWithError:(NSError * _Nonnull)error;
+- (void)didStartMonitoringForCampaign:(NSString * _Nonnull)campaignName;
+- (void)didStopMonitoringForCampaign:(NSString * _Nonnull)campaignName;
 
 @end

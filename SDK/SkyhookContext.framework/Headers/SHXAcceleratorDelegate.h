@@ -50,8 +50,8 @@
  * \param accelerator The accelerator object that generated the enter event.
  * \param venue The campaign venue entered.
  */
-- (void)accelerator:(SHXAccelerator *)accelerator
-      didEnterVenue:(SHXCampaignVenue *)venue;
+- (void)accelerator:(SHXAccelerator * _Nonnull)accelerator
+      didEnterVenue:(SHXCampaignVenue * _Nonnull)venue;
 
 /**
  * Tells the delegate that a campaign venue has been exited.
@@ -59,8 +59,8 @@
  * \param accelerator The accelerator object that generated the exit event.
  * \param venue The campaign venue exited.
  */
-- (void)accelerator:(SHXAccelerator *)accelerator
-       didExitVenue:(SHXCampaignVenue *)venue;
+- (void)accelerator:(SHXAccelerator * _Nonnull)accelerator
+       didExitVenue:(SHXCampaignVenue * _Nonnull)venue;
 
 /**
  * Tells the delegate that an error occurred.
@@ -71,8 +71,8 @@
  * \param accelerator The accelerator object that had the error.
  * \param error The error object containing the reason for the error.
  */
-- (void)accelerator:(SHXAccelerator *)accelerator
-   didFailWithError:(NSError *)error;
+- (void)accelerator:(SHXAccelerator * _Nonnull)accelerator
+   didFailWithError:(NSError * _Nonnull)error;
 
 /**
  * Tells the delegate that the operation to start campaign monitoring is
@@ -88,8 +88,8 @@
  *                     startMonitoringForCampaign: call or nil if the original
  *                     operation was startMonitoringForAllCampaigns.
  */
-- (void)accelerator:(SHXAccelerator *)accelerator
-didStartMonitoringForCampaign:(NSString *)campaignName;
+- (void)accelerator:(SHXAccelerator * _Nonnull)accelerator
+didStartMonitoringForCampaign:(NSString * _Nonnull)campaignName;
 
 /**
  * Tells the delegate that the operation to stop campaign monitoring is
@@ -105,7 +105,7 @@ didStartMonitoringForCampaign:(NSString *)campaignName;
  *                     stopMonitoringForCampaign: call or nil if the original
  *                     operation was stopMonitoringForAllCampaigns.
  */
-- (void)accelerator:(SHXAccelerator *)accelerator
-didStopMonitoringForCampaign:(NSString *)campaignName;
+- (void)accelerator:(SHXAccelerator * _Nonnull)accelerator
+didStopMonitoringForCampaign:(NSString * _Nonnull)campaignName;
 
 @end

@@ -10,7 +10,7 @@
 
 @interface SHXCampaign : NSObject <SHXJSONCreatable>
 
-@property (readonly, strong, nonatomic) NSString *name;
-@property (readonly, strong, nonatomic) NSString *payload;
+@property (readonly, strong, nonatomic, nonnull) NSString *name;
+@property (readonly, strong, nonatomic, nullable) NSString *payload;
 
 @end
