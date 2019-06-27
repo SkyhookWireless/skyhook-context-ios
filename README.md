@@ -1,36 +1,13 @@
-# iOS Skyhook Context SDK
+<!-- FOOTER LEFT "&copy;2013-2017 Skyhook" -->
+<!-- FOOTER RIGHT "Context Accelerator SDK" -->
 
-The Skyhook Context SDK for iOS provides a simple way to integrate Skyhook Context services into your iOS applications.
-
-## Installation
-
-Xcode 9.0+ is required for all projects. Projects must target >= iOS9
-
-### CocoaPods
-
-Specify the SkyhookContext in your podfile:
-
-```
-# Skyhook Context SDK
-target "<Your Target Name>" do
-pod 'SkyhookContext'
-end
-```
-
-Install using the following command:
-
-```
-$ pod install
-```
-
-
-# Documentation
-
+# Skyhook Context Accelerator (iOS)
 
 Prerequisites
 -------------
 
-- Requires iOS 9.0+
+- XCode 9.0+
+- Project must target iOS 9.0+
 - Requires a device with region monitoring support: iPhone 4+, iPad (Wi-Fi only) 3+, iPad (Wi-Fi+Cell) 2+, iPad mini, iPad Air, iPod Touch 5+
 
 Installation
@@ -44,17 +21,18 @@ Installation
   pod 'SkyhookContext', '~> 2.1.0'
 ````
 
-3. Navigate to your project folder and execute the following command in terminal window
+2. Navigate to your project folder and execute the following command in terminal window
 
 ````
-  $ pod update
+  $ pod install
 ````
 
 ### Using Framework
 
 1. Clone [Skyhook Context](https://github.com/SkyhookWireless/skyhook-context-ios) cocoapod repo. 
 2. Drag and drop the framework (SkyhookContext.framework) into your Xcode project. Make sure you check the "Add to targets" checkbox.
-3. Add the following frameworks to your project:
+3. Go to your app’s target preferences, open the `General` tab and add `SkyhookContext.framework` under the `Embedded Binaries` section.
+4. Add the following frameworks to your project:
     - CoreLocation
     - libsqlite3.0
     - MapKit
@@ -62,7 +40,7 @@ Installation
     - SystemConfiguration
     - AddressBook
     - AddressBookUI
-    - Ad (optional)
+    - AdSupport (optional)
 5. Add the following elements to Other Linker Flags section in your Build Settings:
     - -ObjC
     - -lc++
@@ -70,9 +48,12 @@ Installation
 6. In order to use the CoreLocation framework features, it is required to include
    both `NSLocationAlwaysAndWhenInUseUsageDescription` and `NSLocationWhenInUseUsageDescription` keys
    to the Info.plist of your app. The string value of each entry should describe purpose
-   of the location access and will be shown to your users for permission. If you do not need
-   campaign monitoring in your app, and only want venue info based on location, then
+   of the location access and will be shown to your users for permission. You also need to add the
+   `UIBackgroundModes` section and the `location` item in it.
+
+   If you do not need campaign monitoring in your app, and only want venue info based on location, then
    `NSLocationWhenInUseUsageDescription` is sufficient.
+
    While it is possible to use `NSLocationWhenInUseUsageDescription` to request personas
    based on location only when the app is open, this setting will significantly reduce the number
    of location samples used to generate personas for the device.  To increase accuracy and reduce
@@ -173,7 +154,6 @@ The result of the above code would print something like this:
 
 Note that since the values are ordered by probability, you can simply grab the first element (index 0) from the list to get the most probable value for the current user.
 
-
 ### Behaviors
 
 Similarly to the five demographic objects, *SHXPersona* also includes a *behaviors* property.
@@ -192,14 +172,12 @@ The result of the above code would print something like this:
     ID:12341318394918 name:auto intenders
     ID:1234131839491234 name:auto enthusiasts
 
-
 ### Notifications
 
 Anytime the persona is updated, *SHXAccelerator* will notify its delegate.
 
     - (void)accelerator:(SHXAccelerator *)accelerator
        didUpdatePersona:(SHXPersona *)persona;
-
 
 ### When does the Skyhook persona update?
 
@@ -312,7 +290,6 @@ If successful, the block will return an *SHXIPLocation* object. The object is a 
 
 Additional *SHXIPLocation* properties are as follows:
 
-
 ### SHXIPLocation
 
 Property Name      | Property Type                                            | Definition
@@ -321,26 +298,23 @@ coordinate         | CLLocationCoordinate2D                                   | 
 accuracyIndicator  | [SHXAccuracyIndicator](#shx_location_accuracy_indicator) | horizontal accuracy indicator
 locationType       | [SHXIPLocationType](#shx_ip_location_type)               | type of IP
 
-
+<br />
 #### SHXIPLocationType
-
 Value                    | Definiton
 -------------------------|----------
 SHXIPLocationTypeFixed   | fixed IP address
 SHXIPLocationTypeMobile  | mobile IP address
 SHXIPLocationTypeUnknown | unable to resolve type of IP
 
-
+<br />
 Venue Information
 -----------------
 
 The Context Accelerator SDK provides a collection of methods for obtaining venue information related to your campaigns and location.
 
-
 ### Nearby Monitored Venues
 
 The `fetchNearbyMonitoredVenuesWithLimit:completion:` method allows the client to obtain the unique identifiers of nearby venues that are part of actively monitored campaigns. This method can be used in conjunction with the `fetchInfoForVenues:completion:` method to obtain more detailed venue information.
-
 
 ### Venue Information by unique identifer
 
@@ -376,7 +350,6 @@ The `fetchInfoForVenues:completion:` method allows the client to obtain more det
         }];
     }];
 
-
 ### Venue Information at the current location
 
 The `fetchVenueInfoAtLocationWithCompletion:` method allows the client to request the venue information at the current user location.
@@ -393,7 +366,6 @@ The `fetchVenueInfoAtLocationWithCompletion:` method allows the client to reques
         // use venue information
     }];
 
-
 ### Campaign list
 
 The `fetchCampaignsWithCompletion:` method allows the client to request the a list of campaigns available on server.
@@ -409,7 +381,6 @@ The `fetchCampaignsWithCompletion:` method allows the client to request the a li
 
         // use campaigns information
     }];
-
 
 Privacy Considerations
 ----------------------
@@ -446,3 +417,9 @@ If your application is not using the iOS Ad Support Framework but the applicatio
 
 If either of these conditions are not met, the default behavior of the SDK is to treat the user as opted out and disable data collection on the Server.
 
+Online Documentation
+--------------------
+
+For future updates and extra information please refer to the online version of the documentation here:
+
+[http://developer.skyhookwireless.com](http://developer.skyhookwireless.com)
